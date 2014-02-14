@@ -1,4 +1,9 @@
 import java.util.*;
+/**
+ * Some Binary Seach Tree Problems
+ * @author axel
+ *
+ */
 public class BST{
 	
 	public static void main(String [] args){

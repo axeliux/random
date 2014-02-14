@@ -26,7 +26,11 @@ public class Test {
 				System.out.println();
 			}
 		}
-		
+		/**
+		 * Rotates 90 degrees (Image rotation)
+		 * @param M
+		 * @param N
+		 */
 		public static void rotate(int M[][],int N){
 			for(int layer = 0; layer < N/2; layer++){
 				

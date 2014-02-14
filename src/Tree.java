@@ -1,4 +1,9 @@
 import java.util.*;
+/**
+ * A Very Basic implementation of Binary Tree with some common problems based on the Data Structured
+ * @author axel
+ *
+ */
 public class Tree {
 	public static void main(String [] args)	{
 		TNode root = null;
@@ -25,7 +30,12 @@ public class Tree {
 
 		System.out.println("MAx depth for this tree is: " + max_depth(root));
 	}
-
+/**
+ *  Given a TNode insert a new node in the tree with value
+ * @param node
+ * @param value
+ * @return
+ */
 	public static TNode insert(TNode node, int value){
 		if(node == null){
 			 node = new TNode(value);
@@ -40,11 +50,15 @@ public class Tree {
 	}
   	
 	public static List<List<TNode>> tree2Lists(TNode node){
-		List<List<TNode>> result = new LinkedList<List<TNode>>();
+		List<List<TNode>> result = new java.util.LinkedList<List<TNode>>();
 		getNodesByDepth(node,0,result);
 		return result;	
 	}
-
+   /**
+    *  return the max depth of the node
+    * @param node
+    * @return
+    */
 	public static int max_depth(TNode node){
 		if(node == null)
 		{
@@ -59,7 +73,7 @@ public class Tree {
 			return;		
 		}else{
 			if( list.size() == depth){
-				list.add(new LinkedList<TNode>());			
+				list.add(new java.util.LinkedList<TNode>());			
 			}
 			getNodesByDepth(node.left, depth + 1, list);
 			list.get(depth).add(node);

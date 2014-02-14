@@ -1,3 +1,8 @@
+/**
+ * Some Dynamic programming problems
+ * @author axel
+ *
+ */
 public class DP{
 	public static void main(String [] args)
 	{
@@ -26,11 +31,14 @@ public class DP{
 		str[a] = str[b];
 		str[b] = tmp;
 	}
+	/**
+	 * Longest Increasing Subsequence
+	 * @param array
+	 */
 	public static void LIS(int array[]){
 		int size[] = new int[array.length];
 		String path[] = new String[array.length];
-		int max = 0;
-		for(int i = 0; i < array.length; i++ ){
+				for(int i = 0; i < array.length; i++ ){
 			size[i] = 1;
 			path[i] = array[i]+"";
 		}

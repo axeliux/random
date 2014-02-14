@@ -1,4 +1,9 @@
 import java.util.*;
+/**
+ * Some sort of sorting algorithms implementations
+ * @author axel
+ *
+ */
 public class Sort{
 	public static void main(String arg[]){
 	int[][] problem = {

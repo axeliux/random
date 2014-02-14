@@ -1,20 +1,20 @@
 // This class is incomplete
 public class PriorityQueue{
-	public Iteam H[];
-	public heapSize;
+	public Item T[];
+	public int heapSize;
 	public PriorityQueue(int capacity){
-		this.table = new Iteam[capacity];
+		this.T = new Item[capacity];
 		this.heapSize = 0;
 	}
 	
-	public Iteam heap_maximun(){
+	public Item heap_maximun(){
 		return T[0];
 	}
-	public Iteam heap_extract_max(){
-		Iteam max = this.heap_maximun();
+	public Item heap_extract_max(){
+		Item max = this.heap_maximun();
 		T[0] = T[this.heapSize-1];
 		this.heapSize--;
-		heapify(H,0,this.heapSize);
+		heapify(T,0,this.heapSize);
 		return max;
 		
 	}
@@ -25,27 +25,27 @@ public class PriorityQueue{
 			i = getParent(i);
 		}
 	}
-	public void max_heap_insert(Iteam x){
+	public void max_heap_insert(Item x){
 		int tmpKey = x.key;
-		x.key = Integer.MIN_INTEGER;
-		H[this.heapSize++] = x;
-		heap_increase_key(H,this.heapSize-1,tmpKey);
+		x.key = Integer.MIN_VALUE;
+		T[this.heapSize++] = x;
+		heap_increase_key(T,this.heapSize-1,tmpKey);
 	}
 	public void heapsort(){
 		for(int i = this.heapSize -1; i >= 1 ; i++ ){
-			swap(H,0,i);
-			heapify(H,0,i);
+			swap(T,0,i);
+			heapify(T,0,i);
 		}
 	
 	}
 	public void build_max_heap()
 	{
 		for(int i = this.heapSize/2; i >= 0; i--){
-			heapify(H,i,this.heapSize);
+			heapify(T,i,this.heapSize);
 		}
 	}
 	
-	public void heapify(Iteam A[], int i, int h_size){
+	public void heapify(Item A[], int i, int h_size){
 		int left = this.getLeft(i);
 		int right = this.getRight(i);
 		int largest = i;
@@ -71,9 +71,9 @@ public class PriorityQueue{
 	}
 	public int getRight(int i){
 		i++;
-		return (2*i)
+		return (2*i);
 	}
-	public int getParent(i){
+	public int getParent(int i){
 		return i/2;
 	}
 	public static void main(String args []){

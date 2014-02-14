@@ -1,4 +1,9 @@
 import java.util.*;
+/**
+ * A basic Implementation of a LinkedList with a some problems related
+ * @author axel
+ *
+ */
 public class LinkedList
 {
 
