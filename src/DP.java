@@ -61,6 +61,24 @@ public class DP{
 		
 		
 	}
+	/**
+	 * Road cutting problem
+	 * */
+	public static int rod_cutting(int V[], int N){
+		int B[] = new int[N+1];
+		B[0] = 0;
+		
+		for(int i = 1; i <= N ; i++){
+			int max =  V[i];
+			for(int j = 1; j < i; j++){
+				int current = V[j] + B[i-j];
+				max = Math.max(max,current);
+			}
+			B[i] = max;
+		}
+	return B[N];		
+	}
+
 	public static void minMonedas(int monedas [], int sum){
 		int result[] = new int[sum+1];
 		String path [] = new String[sum+1];
