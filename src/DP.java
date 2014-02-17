@@ -79,9 +79,9 @@ public class DP{
 	return B[N];		
 	}
 
-	public static void minMonedas(int monedas [], int sum){
-		int result[] = new int[sum+1];
-		String path [] = new String[sum+1];
+	public static void MIN_COINS(int C [], int T){
+		int result[] = new int[T+1];
+		String path [] = new String[T+1];
 		result[0] = 0;
 		path[0] = "0";
 
@@ -89,10 +89,10 @@ public class DP{
 		for(int i = 1; i < result.length; i++ ){
 			result[i] = Integer.MAX_VALUE;
 			path[i] = "";
-			for(int j= 0; j < monedas.length; j++){
-				if (monedas[j] <= i && (result[i - monedas[j]] + 1) < result[i]){
-					result[i] = result[i - monedas[j]] +1;
-					path[i] = path[i - monedas[j]] + " + " +monedas[j];
+			for(int j= 0; j < C.length; j++){
+				if (C[j] <= i && (result[i - C[j]] + 1) < result[i]){
+					result[i] = result[i - C[j]] +1;
+					path[i] = path[i - C[j]] + " + " +C[j];
 				}
 			}
 		}
