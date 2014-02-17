@@ -14,6 +14,9 @@ public class DP{
 		perms(array,0,array.length);
 		
 	}
+	/**
+	 * Complecity  O (n!)
+	 * */
 	public static void perms(char str [], int i, int n){
 		if(i==n){
 			System.out.println(str);
@@ -33,6 +36,7 @@ public class DP{
 	}
 	/**
 	 * Longest Increasing Subsequence
+	 * Complexity O ( n^2 )
 	 * @param array
 	 */
 	public static void LIS(int array[]){
@@ -63,6 +67,7 @@ public class DP{
 	}
 	/**
 	 * Road cutting problem
+	 * Complexity O ( n^2 )
 	 * */
 	public static int rod_cutting(int V[], int N){
 		int B[] = new int[N+1];
@@ -78,6 +83,9 @@ public class DP{
 		}
 	return B[N];		
 	}
+	/**
+	 * Complexity O ( nC ) where n is T and C the number of Coins at C
+	 * */
 
 	public static void MIN_COINS(int C [], int T){
 		int result[] = new int[T+1];
