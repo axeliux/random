@@ -51,10 +51,38 @@ public class Test {
 				}
 			}
 		}
+public static String getPalindrome(char str []){
+	char [] result = new char[str.length];
+	Arrays.sort(str);
+	boolean isEven = (str.length % 2 == 0);
+	int start  =0;
+	int end = str.length -1;
+	char reminder = ' ';
+	for(int i = 1; i < str.length; i+=2){
+		if(str[i-1] != str[i]){
+			if(isEven){
+				return "-1";
+			}else{
+				reminder = str[i-1];
+				isEven = true;
+			}
+		}else{
+			result[start++] = str[i];
+			result[end--] = str[i-1];
+		}
+		if(i+1 == str.length-1) // special case when is not even and reminder is the last one
+			reminder = str[i+1];
+	}
+	
+	if(start == end){
+		result[start] = reminder;
+	}
+	return new String(result);
+}
 
 /**
  * sum permutation
- * /
+ * */
 public static void all(int t){
 	String R[][] = new String[t+1][];
 	R[0] =new String[0];
