@@ -91,6 +91,17 @@ public class Tree {
 		}	
 	}
 
+	public static int chSum(TNode node){
+		if(node == null){
+			return 0;
+		}else if(node.left == null && node.right == null){
+			return node.value;
+		}else{
+			int  tmp = node.value;
+			node.value = chSum(node.right);
+			return tmp + node.value + chSum(node.left);
+		}
+	}
 
 static class TNode{
  int value;
