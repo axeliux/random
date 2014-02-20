@@ -26,6 +26,40 @@ public class LinkedList
 		
 		
 	}
+	public static LNode reverseSimplified(LNode head){
+		LNode current = head;
+		LNode next = null;
+		LNode prev = null;
+		
+		while(current != null){
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		
+		return prev;
+	}
+	public static LNode reverseK(LNode head, int k){
+		LNode current = head;
+		LNode next = null;
+		LNode prev = null;
+		int count = 0;
+		
+		while(current !=  null && count < k){
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+			count++;
+		}
+		
+		if(next != null){
+			head.next = reverseK(next,k);
+		}
+		
+		return prev;
+	}
 	public static LNode reverse(LNode head){
 		if(head == null || head.next == null) return head;
 		if (head.next.next == null){
