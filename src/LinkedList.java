@@ -246,6 +246,25 @@ public class LinkedList
 		}
 		return head;
 	}
+	// Reverse every k elements,
+	public static LNode reverse(LNode head,int k){
+		LNode current = head;
+		LNode next = null;
+		LNode prev = null;
+		int count = 0;
+		while(current != null && count < k){
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+			count++;
+		}
+		if(next != null){
+			head.next = reverse(next,k);
+		}
+		return prev;
+	}
+	
 
 
 	
