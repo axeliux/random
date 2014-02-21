@@ -6,7 +6,7 @@ public class Searching{
 	}
 	/**
 	* Naive pattern Searching.
-	* Complexity  O (n*k)
+	* Complexity  O (k (n-k))  where k = pattern lenght and n length of str
 	*/
 	public static void search(char str[], char pattern[]){
 		int limit = str.length - pattern.length + 1;
