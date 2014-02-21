@@ -1,0 +1,24 @@
+public class Searching{
+	public static void main(String args[]){
+		char [] str = "AABAACAADAABAAABAA".toCharArray();
+		char [] pattern = "AABA".toCharArray();
+		search(str,pattern);
+	}
+	/**
+	* Naive pattern Searching.
+	* Complexity  O (n*k)
+	*/
+	public static void search(char str[], char pattern[]){
+		int limit = str.length - pattern.length + 1;
+		for(int i = 0; i < limit; i++){
+			int j = 0;
+			for( j = 0; j < pattern.length; j ++){
+				if(str[i+j] != pattern[j])
+					break;
+			}
+			if(j == pattern.length){
+				System.out.println("Pattern found at: " + i);
+			}
+		}
+	}
+}
