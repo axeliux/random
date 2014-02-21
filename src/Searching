@@ -21,4 +21,23 @@ public class Searching{
 			}
 		}
 	}
+	
+	public static boolean match(char [] str,int i, char pattern[], int j){
+	    if(i < str.length && j == pattern.length)return false;
+		if(i == str.length && j == pattern.length){
+			return true;
+		}
+		if(i == str.length && j+1< pattern.length && pattern[j] == '*'){
+			return false;
+		}
+		
+		if(pattern[j] == '?' || pattern[j] == str[i]){
+			return match(str,i+1,pattern,j+1);
+		}
+		if(pattern[j] == '*'){
+			return match(str,i,pattern,j+1) || match(str,i+1,pattern,j);
+		}
+		
+		return false;
+	}
 }
