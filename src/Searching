@@ -40,4 +40,36 @@ public class Searching{
 		
 		return false;
 	}
+	public static char[] getLongestPalindrome(char str[]){
+		int max = 0;
+		char longest [] = new char[0];
+		for(int i = 0; i < str.length; i++){
+			char t[] = getPalindrome(str,i,i);
+			if(max < t.length){
+				max = t.length;
+				longest = t;
+			}
+			t = getPalindrome(str,i, i+1);
+			if(max < t.length){
+				max = t.length;
+				longest = t;
+			}
+		}
+		
+		System.out.println(longest);
+		return longest;
+	}
+	public static char[] getPalindrome(char str[], int i, int j){
+		while(i>=0 && j < str.length && str[i] == str[j]){
+			i--;
+			j++;
+		}
+		
+		char result[] = new char[(j-i)+1];
+		int index = 0;
+		for(int k=i+1; k < j; k++){
+			result[index++] = str[k];
+		}
+		return result;
+	}
 }
