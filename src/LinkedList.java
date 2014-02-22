@@ -26,6 +26,35 @@ public class LinkedList
 		
 		
 	}
+	/**
+	 * Checks wether a LinkedList is palindrome or not
+	 * */
+	public static boolean  isPalindrome(LNode node){
+		int size = size(node);
+		int middle = size/2;
+		
+		if((size % 2) != 0) middle++;
+		
+		LNode current = node;
+		LNode runner = node;
+		int counter = 0;
+		while(counter < middle-1){
+			runner = runner.next;
+			counter++;
+		}
+		runner.next = reverseSimplified(runner.next);
+		while(runner != null){
+			if(runner.value != current.value){
+				return false;
+			}
+			runner = runner.next;
+			current = current.next;	
+		}
+		
+		return true;
+		
+	}
+	
 	public static LNode reverseSimplified(LNode head){
 		LNode current = head;
 		LNode next = null;
