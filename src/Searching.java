@@ -72,4 +72,21 @@ public class Searching{
 		}
 		return result;
 	}
+	
+	public static void printParenthesis(char buffer[],int p,int n, int open, int close){
+	
+	if( close == n){
+		System.out.println(new String(b));
+		return;
+	}else{
+		if(open > close){
+			buffer[p] = '}';
+			printP(b,p+1,n,open,close+1);
+		}	
+		if(open < n){
+			buffer[p] = '{' ;
+			printP(buffer,p+1,n,open+1,close);
+		}
+	}
+}
 }
