@@ -73,20 +73,22 @@ public class Searching{
 		return result;
 	}
 	
-	public static void printParenthesis(char buffer[],int p,int n, int open, int close){
-	
-	if( close == n){
-		System.out.println(new String(b));
-		return;
-	}else{
-		if(open > close){
-			buffer[p] = '}';
-			printP(b,p+1,n,open,close+1);
-		}	
-		if(open < n){
-			buffer[p] = '{' ;
-			printP(buffer,p+1,n,open+1,close);
+	public static void printParenthesis(int n){
+		char buffer[] = new char[n*2];
+		printP(buffer,0,n,0,0);
+	}
+	public static void printP(char buffer[],int index,int n, int open, int close){
+		if(close == n){
+			System.out.println(new String(buffer));
+		}else{
+			if(open > close){
+				buffer[index] = '}';
+				printP(buffer,index+1,n,open,close+1);
+			}
+			if(open < n){
+				buffer[index] = '{';
+				printP(buffer,index+1,n,open+1,close);
+			}
 		}
 	}
-}
 }
