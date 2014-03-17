@@ -54,6 +54,39 @@ public class LinkedList
 		return true;
 		
 	}
+	public static Node reverseFirstK(Node node, int k){
+		Node next = null;
+		Node prev = null;
+		Node current = node;
+		while(current != null && k > 0){
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+			k--;
+		}
+		return prev;
+	}
+	public static Node rotateList(Node node, int k){
+		k = k%size(node);
+		Node head = reverse(node);
+		Node next = head;
+		int counter = k;
+		while(counter >= 0){
+			next = next.next;
+			counter--;
+		}
+		
+	    head = reverseFirstK(head,k); // will remove just the first k elements.
+		
+	
+		Node tmp = head;
+		while(tmp.next != null){
+			tmp = tmp.next;
+		}
+		tmp.next = reverse(next);
+		return head;
+	}
 	
 	public static LNode reverseSimplified(LNode head){
 		LNode current = head;
